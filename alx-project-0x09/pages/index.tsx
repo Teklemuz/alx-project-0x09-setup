@@ -9,20 +9,22 @@ const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleGenerateImage = async () => {
+    console.log("Generating Image");
+    console.log(process.env.NEXT_PUBLIC_GPT_API_KEY);
+
     setIsLoading(true);
     console.log("Generating Images");
 
-    // Simulate image generation (you can replace this with your actual image generation logic)
     setTimeout(() => {
       const generatedImage = {
         imageUrl: "https://via.placeholder.com/500",
-        prompt: prompt
+        prompt: prompt,
       };
 
-      setGeneratedImages([generatedImage, ...generatedImages]); // Add to generated images array
-      setImageUrl(generatedImage.imageUrl); // Set the generated image URL
+      setGeneratedImages([generatedImage, ...generatedImages]);
+      setImageUrl(generatedImage.imageUrl); 
       setIsLoading(false);
-    }, 2000); // Simulating a delay for image generation
+    }, 2000); 
   };
 
   return (
